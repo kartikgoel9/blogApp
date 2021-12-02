@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('layouts/header'); -%>
+  <body>
+    <!-- Navigation-->
+    <%- include('layouts/navbar'); -%>
+    <!-- Page Header-->
+    <header
+      class="masthead"
+      style="background-image: url('assets/img/home-bg.jpg')"
+    >
+      <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-md-10 col-lg-8 col-xl-7">
+            <div class="site-heading">
+              <h1>Clean Blog</h1>
+              <span class="subheading">A Blog Theme by Start Bootstrap</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Main Content-->
+    <div class="container px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+          <!-- Post preview-->
+          <% for (var i = 0; i < blogPosts.length; i++) { %>
+          <div class="post-preview">
+            <a href="/post/<%= blogPosts[i]._id
+%>">
+              <h2 class="post-title"><%= blogPosts[i].title %></h2>
+              <h3 class="post-subtitle"><%= blogPosts[i].body %></h3>
+            </a>
+            <p class="post-meta">
+                <a href="#"><%= blogPosts[i].username %></a>
+                on <%= blogPosts[i].datePosted.toDateString() %>
+            </p>
+          </div>
+          <hr />
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <!-- Footer-->
+    <%- include('layouts/footer'); -%>
+    <!-- Script-->
+    <%- include('layouts/scripts'); -%>
+  </body>
+</html>
